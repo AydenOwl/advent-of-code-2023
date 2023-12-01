@@ -34,3 +34,6 @@ export function calibrateFromFile(filePath: string): number {
 
     return result
 }
+
+const solution = calibrateFromFile("input.txt")
+console.log("The solution is: ", solution)

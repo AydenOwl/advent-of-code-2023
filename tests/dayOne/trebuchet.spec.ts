@@ -22,4 +22,15 @@ describe("Day one - Trebuchet", () => {
         // Then
         expect(calibration).toStrictEqual(15)
     })
+
+    it("gets calibration of lines with only one number", () => {
+        // Given
+        const input = "treb7uchet"
+
+        // When
+        const calibration = getCalibrationFrom(input)
+        
+        // Then
+        expect(calibration).toStrictEqual(77)
+    })
 })

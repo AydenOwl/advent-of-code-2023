@@ -11,4 +11,15 @@ describe("Day one - Trebuchet", () => {
         // Then
         expect(calibration).toStrictEqual(12)
     })
+
+    it("gets calibration of lines with more than two numbers", () => {
+        // Given
+        const input = "a1b2c3d4e5f"
+
+        // When
+        const calibration = getCalibrationFrom(input)
+        
+        // Then
+        expect(calibration).toStrictEqual(15)
+    })
 })

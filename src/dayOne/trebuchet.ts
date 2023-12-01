@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 export function getCalibrationFrom(line: string): number {
     const allNumbersRegex = /\d/g
     const matches = [...line.matchAll(allNumbersRegex)]
@@ -18,4 +21,16 @@ function getFirstMatchValue(regexMatches: RegExpMatchArray[]): string {
 function getLastMatchValue(regexMatches: RegExpMatchArray[]): string {
     const lastMatchIndex = regexMatches.length - 1
     return regexMatches[lastMatchIndex][0]
+}
+
+export function calibrateFromFile(filePath: string): number {
+    const file = fs.readFileSync(path.resolve(__dirname, filePath), { encoding: 'utf-8'})
+
+    const lines = file.toString().split("\n")
+
+    const result = lines
+        .map((line) => getCalibrationFrom(line))
+        .reduce((previous, current) => previous + current)
+
+    return result
 }

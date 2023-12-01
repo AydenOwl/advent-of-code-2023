@@ -1,4 +1,4 @@
-import { getCalibrationFrom } from "../../src/dayOne/trebuchet"
+import { calibrateFromFile, getCalibrationFrom } from "../../src/dayOne/trebuchet"
 
 describe("Day one - Trebuchet", () => {
     it("gets calibration of line with numbers in first and last places", () => {
@@ -32,5 +32,16 @@ describe("Day one - Trebuchet", () => {
         
         // Then
         expect(calibration).toStrictEqual(77)
+    })
+
+    it("gets calibration from a text file", () => {
+        // Given
+        const filePath = "../../tests/dayOne/input.txt"
+
+        // When
+        const result = calibrateFromFile(filePath)
+
+        // Then
+        expect(result).toStrictEqual(142)
     })
 })
